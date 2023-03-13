@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;900&family=Roboto&family=Sacramento&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcForYou</title>
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif;
+            font-size: large;
+        }
+        .inputarea{
+            position: absolute;
+            left: 35%;
+            top: 10%;
+        }
+        .in{
+
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+            height: 25px;
+
+        }
+        #btn{
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            font-size: large;
+            width: 70%;
+            left: 15%;
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+
+
+    </style>
+    <script>
+        function computeQtyLot()
+        {
+            var type = document.getElementById("type").value;
+            var totamt = parseInt(document.getElementById("totamount").value);
+            var amtqty = parseInt(document.getElementById("amtperqty").value);
+            var numqty = Math.floor(totamt/amtqty);
+            var numlots = 0;
+            if(type=="bn")
+            {
+                numlots = Math.floor(numqty/25);
+            }
+            else
+            {
+                numlots = Math.floor(numqty/40);
+            }
+            document.getElementById("qty").innerHTML = numqty;
+            document.getElementById("lots").innerHTML = numlots;
+        }
+    </script>
+</head>
+<body>
+
+    <div class = "inputarea">
+        <h2>LOT-QUANTITY CALCULATOR</h2>
+        <table border = '0'cellpadding = "20px">
+            <tr>
+            <td><label for = "type">Select Type: </label></td>
+            <td>
+            <select class = "in" name = "type" id="type">
+            <option value = "bn">Banknifty</option>  
+            <option value = "fn">Finnifty</option>  
+            </select> 
+            </td></tr>
+            <tr><td><label for="totamount">Total Amount: </label></td><td><input class = "in" type="text" name = "totamount" id = "totamount"></td></tr>
+            <tr><td><label for="amtperqty">Amount per quantity: </label></td><td><input class = "in" type="text" name = "amtperqty" id = "amtperqty"></td></tr>  
+            
+        </table>
+        <br>
+
+        <button id = "btn" onclick="computeQtyLot()">CALCULATE</button>
+        <br><br>
+        <hr>
+        <table border = '0' cellspacing= "15px">
+            <tr>
+                <td><p>Number of Quantities: </p></td>
+                <td><p id = "qty" ></p></td>
+            </tr>
+            <tr>
+                <td><p>Number of Lots: </p></td>
+                <td><p id = "lots"></p></td>
+            </tr>
+        </table>
+        
+  
+        
+    </div>
+
+    
+    
+    
+</body>
+</html>
