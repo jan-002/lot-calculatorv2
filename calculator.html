@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;900&family=Roboto&family=Sacramento&display=swap" rel="stylesheet">
+        
+        <title>CalcForYou</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif;
+            font-size: large;
+            margin-top: 0;
+        }
+        p{
+            display: inline-block;
+            font-size: smaller;
+            padding: 0px 20px;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+            text-align: right;
+            
+        }
+        input{
+            height: 20px;
+        }
+
+        h2{
+            margin-top: 0;
+            padding: 0px 10px;
+            color: rgb(125, 82, 34);
+        }
+        .calc{
+            border: 5px solid green ;
+        }
+
+        .header{
+            height: 10%;
+            background-color:rgb(18, 103, 17);
+            color: antiquewhite;
+            padding: 5px 5px;
+        }
+        .flex-container{
+            overflow: auto;
+
+        } 
+        .inner-div{
+            float: left;
+            position: relative;
+            margin-top: 5%;
+            margin-left: 12%;
+        }
+        .calc{
+            float: left;
+            position: relative;
+            margin-top: 5%;
+            margin-left: 12%;
+        }
+
+        #addsub{
+            width: 100%;
+            height: 100%;
+            font-size: large;
+            background-color:rgb(206, 231, 186);
+            border-color: green;
+            font-weight: bold;
+            color: rgb(2, 52, 2);
+        }
+
+        #btn{
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            font-size: large;
+            width: 100%;
+            padding: 5px 10px;
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+
+        #range {
+            -webkit-appearance: none; 
+            appearance: none;
+            width: 100%; 
+            height: 25px; 
+            background: #d3d3d3; 
+            outline: none; 
+            opacity: 0.7; 
+            -webkit-transition: .2s; 
+            transition: opacity .2s;
+        }
+        #range:hover {
+            opacity: 1;
+        }
+
+        #range::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default look */
+            appearance: none;
+            width: 25px; /* Set a specific slider handle width */
+            height: 25px; /* Slider handle height */
+            background:rgb(18, 103, 17); /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
+        #range::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+            }
+
+
+
+
+        @media only screen and (max-width: 620px) 
+        {
+
+
+            .inner-div{
+                float: none;
+                width: 100%;
+                margin-left: 7%;
+            }
+            .calc{  
+                margin-top: 20px;
+                float: none;
+                width: 80%;
+                margin-left: 3%;
+            }
+
+            
+
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h2 style = "display: inline-block; color: beige; font-weight: 500; margin-bottom: 0%;">CalcForYou</h2>
+        <a href = "index.html"><p>LotsNQuantities</p></a>
+        <a href = "calculator.html"><p>Calculator</p></a>
+    </div>
+
+    <div class  = "flex-container ">
+        <div class = "inner-div" >
+            <table border = '0'cellpadding = "20px"  style = "float: left;">
+                <tr>
+                    <td><label for = "num">Value: </label></td>
+                    <td ><input type="number" name = "num" id = "num"></td>
+                </tr>
+                <tr>
+                    <td><label for = "range">Divisor: </label></td>
+                    <td><input type = "range" min = "1.0" max = "2.0" step = "0.1" id = "range" name = "range"></td>
+                    <td><p>Value: <span id="demo"></span></p></td>
+                </tr>
+                <tr>
+                    <td><label for = "ans">Result: </label></td>
+                    <td><p><span id = "out"></span></p></td>
+    
+                </tr>
+                
+            </table>
+            <button id = "btn" onclick="show()">Calculate!</button>
+        </div>
+        <div class = "calc">
+
+            <table border = '0'cellpadding = "20px"  >
+                <tr style="background-color: beige;" id = "table">
+                    <td><button id = "addsub" onclick="add()"><p>Add (+)</p></td>
+                    <td ><input type="number" name = "num1" id = "num1" placeholder="Number 1"></td>
+                </tr>
+                <tr style="background-color: beige;">
+                    <td><button id = "addsub" onclick="sub()"><p>Subtract (-)</p></td>
+                    <td ><input type="number" name = "num2" id = "num2" placeholder="Number 2"></td>
+                </tr>
+                <tr>
+                    <td><label for = "ans2">Result: </label></td>
+                    <td><p><span id = "ans2"></span></p></td>
+    
+                </tr>
+                
+            </table>
+
+        </div>
+
+    </div>
+
+    <script>
+        
+        var slider = document.getElementById("range");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+        function show()
+        {
+            var val = document.getElementById("num").value;
+            var result = document.getElementById("out");
+            result.innerHTML = (val/slider.value).toFixed(4);
+
+        }
+        function add()
+        {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result = document.getElementById("ans2");
+            result.innerHTML = (num1+num2).toFixed(6);
+        }
+        function sub()
+        {
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            var result = document.getElementById("ans2");
+            result.innerHTML = (num1-num2).toFixed(6);
+        }
+    </script>   
+
+    
+    
+</body>
+</html>
