@@ -49,12 +49,14 @@
                 var div = 25;
                 var stop = 10;
                 var fixed = 180000;
+                var amtcmp = 1800000;
             }
             else if(type=="fn")
             {
                 var div = 40;
                 var stop = 5;
                 var fixed = 360000;
+                var amtcmp = 3600000;
             }
 
             var k = 1;
@@ -95,7 +97,7 @@
                     var min = Number.MAX_VALUE;
                     var st = start.toString() + " - " + next.toString();
                     var mid = (start+next)/2;
-                    if(i<=stop && k==1)
+                    if(i<=stop && k==1 && totamt>=amtcmp)
                         var numqty = fixed;   
                     else
                         var numqty = Math.floor(totamt/mid);
