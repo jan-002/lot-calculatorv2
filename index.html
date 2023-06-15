@@ -47,14 +47,12 @@
             if(type=="bn")
             {
                 var div = 25;
-                var stop = 10;
                 var fixed = 180000;
                 var qtycmp = 180000;
             }
             else if(type=="fn")
             {
                 var div = 40;
-                var stop = 5;
                 var fixed = 360000;
                 var qtycmp = 360000;
             }
@@ -98,7 +96,7 @@
                     var st = start.toString() + " - " + next.toString();
                     var mid = (start+next)/2;
                     var numqty = Math.floor(totamt/mid);
-                    if((i<=stop && k==1)||(numqty>=qtycmp))
+                    if(numqty>=qtycmp)
                         var numqty = fixed;  
 
                     var numlots = Math.floor(numqty/div);
