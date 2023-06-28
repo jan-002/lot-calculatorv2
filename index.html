@@ -34,6 +34,29 @@
         .carousel-control-prev /*, .carousel-indicators */ {
             filter: invert(100%);
         }
+        @media only screen and (max-width: 600px) {
+            #totamount {
+                width: 90%;
+                display: block;
+            }
+            #type{
+                width: 90%;
+                display: block;
+            }
+            #min{
+                width: 90%;
+                display: block;
+            }
+            #max{
+                width: 90%;
+                display: block;
+                margin-bottom: 5px;
+            }
+            #totamtlabel{
+                width: 90%;
+                display: block;
+            }
+         }
   
     </style>
 
@@ -150,10 +173,6 @@
                     cell3.innerHTML = numlots.toString();
                     cell4.innerHTML = ("/"+ans).toString();
                     cell5.innerHTML =("="+(Math.floor(numlots/ans))).toString();
-
-                    
-
-
                     start = next;
                     next = next + 5;
 
@@ -219,17 +238,17 @@
 <body>
     <div class="header">
         <h2 style = "display: inline-block; color: beige; font-weight: 500; margin-bottom: 0%;">NAVEENACalcForYou</h2>
-        <label for="totamount" style="padding-left: 5px; ">Total Amount: </label>
-        <input class = "in" type="number" name = "totamount" id = "totamount" style="width: 10%;">
+        <label for="totamount" style="padding-left: 5px; " id="totamtlabel">Total Amount: </label>
+        <input class = "in" type="number" name = "totamount" id = "totamount">
         <label for = "type" style="padding-left: 5px;">Select Type: </label>
-        <select class = "in" name = "type" id="type" style="width: 10%;">
+        <select class = "in" name = "type" id="type">
             <option value = "bn">Banknifty</option>  
             <option value = "fn">Finnifty</option>  
         </select> 
         <label for="min" style="padding-left: 5px;">Min: </label>
-        <input class = "in" type="number" name = "min" id = "min" style="width: 10%;">
+        <input class = "in" type="number" name = "min" id = "min">
         <label for="max" style="padding-left: 5px;">Max: </label>
-        <input class = "in" type="number" name = "max" id = "max" style="width: 10%;">
+        <input class = "in" type="number" name = "max" id = "max">
         <button type="button" class="btn btn-success" style="margin-left: 5px; margin-bottom: 0.5%;" onclick="compute()">CALCULATE</button>
         <a href="https://tinyurl.com/adei07" style="margin-left: 5px; margin-bottom: 0.5%;" class="btn btn-info" role="button">LIVE CHART</a>
     </div>
