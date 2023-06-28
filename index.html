@@ -44,6 +44,8 @@
         {
             var totamt = document.getElementById("totamount").value;
             var type = document.getElementById("type").value;
+            var minlimit = document.getElementById("min").value;
+            var maxlimit = document.getElementById("max").value;
             if(type=="bn")
             {
                 var div = 25;
@@ -122,9 +124,9 @@
                     document.getElementById("numl"+i+k).style.backgroundColor = "#F47C7C";
                     document.getElementById("ans"+i+k).style.backgroundColor = "#B6EAFA";
                     document.getElementById("res"+i+k).style.backgroundColor = "#FFA559";
-                    if(numlots>=500)
+                    if(numlots>=minlimit)
                     {
-                        for(var j=500;j<=Math.min(1000,numlots);j++)
+                        for(var j=minlimit;j<=Math.min(maxlimit,numlots);j++)
                         {
                             res1 = Math.floor(numlots/j);
                             res2 = (numlots/j) - res1;
@@ -136,7 +138,7 @@
                             
                         }
                     }
-                    else if(numlots<500)
+                    else if(numlots<minlimit)
                     {
                         ans = 1;
                     }
@@ -217,15 +219,19 @@
 <body>
     <div class="header">
         <h2 style = "display: inline-block; color: beige; font-weight: 500; margin-bottom: 0%;">NAVEENACalcForYou</h2>
-        <label for="totamount" style="padding-left: 5%;">Total Amount: </label>
-        <input class = "in" type="number" name = "totamount" id = "totamount">
-        <label for = "type" style="padding-left: 5%;">Select Type: </label>
-        <select class = "in" name = "type" id="type" style="width: 12.5%; "">
+        <label for="totamount" style="padding-left: 5px; ">Total Amount: </label>
+        <input class = "in" type="number" name = "totamount" id = "totamount" style="width: 10%;">
+        <label for = "type" style="padding-left: 5px;">Select Type: </label>
+        <select class = "in" name = "type" id="type" style="width: 10%;">
             <option value = "bn">Banknifty</option>  
             <option value = "fn">Finnifty</option>  
         </select> 
-        <button type="button" class="btn btn-success" style="margin-left: 5%; margin-bottom: 0.5%;" onclick="compute()">CALCULATE</button>
-        <a href="https://tinyurl.com/adei07" style="margin-left: 5%; margin-bottom: 0.5%;" class="btn btn-info" role="button">LIVE CHART</a>
+        <label for="min" style="padding-left: 5px;">Min: </label>
+        <input class = "in" type="number" name = "min" id = "min" style="width: 10%;">
+        <label for="max" style="padding-left: 5px;">Max: </label>
+        <input class = "in" type="number" name = "max" id = "max" style="width: 10%;">
+        <button type="button" class="btn btn-success" style="margin-left: 5px; margin-bottom: 0.5%;" onclick="compute()">CALCULATE</button>
+        <a href="https://tinyurl.com/adei07" style="margin-left: 5px; margin-bottom: 0.5%;" class="btn btn-info" role="button">LIVE CHART</a>
     </div>
     <div id="carouselExampleIndicators" class="carousel slide hidden-lg" data-interval="false" data-keyboard="false">
         <ol class="carousel-indicators">
