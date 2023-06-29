@@ -81,6 +81,12 @@
                 var fixed = 360000;
                 var qtycmp = 360000;
             }
+            else if(type=="n")
+            {
+                var div = 50;
+                var fixed = 360000;
+                var qtycmp = 360000;
+            }
 
             var k = 1;
             var instart = 0; 
@@ -243,7 +249,8 @@
         <label for = "type" style="padding-left: 5px;">Select Type: </label>
         <select class = "in" name = "type" id="type">
             <option value = "bn">Banknifty</option>  
-            <option value = "fn">Finnifty</option>  
+            <option value = "fn">Finnifty</option>
+            <option value = "n">Nifty</option>
         </select> 
         <label for="min" style="padding-left: 5px;">Min: </label>
         <input class = "in" type="number" name = "min" id = "min">
