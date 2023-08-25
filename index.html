@@ -69,13 +69,7 @@
             var type = document.getElementById("type").value;
             var minlimit = document.getElementById("min").value;
             var maxlimit = document.getElementById("max").value;
-            if(type=="bn")
-            {
-                var div = 25;
-                var fixed = 180000;
-                var qtycmp = 180000;
-            }
-            else if(type=="fn")
+            if(type=="fn")
             {
                 var div = 40;
                 var fixed = 360000;
@@ -93,6 +87,20 @@
                 var fixed = 180000;
                 var qtycmp = 180000;
             }
+            else if(type=="mc")
+            {
+                var div = 75;
+                var fixed = 5500*200;
+                var qtycmp = 5500*200;
+
+            }
+            else if(type=="ss")
+            {
+                var div = 10;
+                var fixed = 500*200;
+                var qtycmp = 500*200;
+            }
+
 
             var k = 1;
             var instart = 0; 
@@ -254,10 +262,11 @@
         <input class = "in" type="number" name = "totamount" id = "totamount">
         <label for = "type" style="padding-left: 2px;">Select Type: </label>
         <select class = "in" name = "type" id="type">
-            <option value = "bn">Banknifty</option>  
             <option value = "fn">Finnifty</option>
             <option value = "n">Nifty</option>
-            <option value = "bnn">Banknifty New</option> 
+            <option value = "bnn">Banknifty</option> 
+            <option value = "mc">Midcap</option>
+            <option value = "ss">Sensex</option>
         </select> 
         <label for="min" style="padding-left: 2px;">Min: </label>
         <input class = "in" type="number" name = "min" id = "min">
