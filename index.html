@@ -69,36 +69,37 @@
             var type = document.getElementById("type").value;
             var minlimit = document.getElementById("min").value;
             var maxlimit = document.getElementById("max").value;
+            var nval = document.getElementById("n").value;
             if(type=="fn")
             {
-                var div = 40;
-                var fixed = 360000;
-                var qtycmp = 360000;
+                var div = 25;
+                var fixed = 1800*nval;
+                var qtycmp = 1800*nval;
             }
             else if(type=="n")
             {
-                var div = 50;
-                var fixed = 360000;
-                var qtycmp = 360000;
+                var div = 25;
+                var fixed = 1800*nval;
+                var qtycmp = 1800*nval;
             }
             else if(type=="bnn")
             {
                 var div = 15;
-                var fixed = 180000;
-                var qtycmp = 180000;
+                var fixed = 900*nval;
+                var qtycmp = 900*nval;
             }
             else if(type=="mc")
             {
-                var div = 75;
-                var fixed = 4200*200;
-                var qtycmp = 4200*200;
+                var div = 50;
+                var fixed = 2800*nval;
+                var qtycmp = 2800*nval;
 
             }
             else if(type=="ss")
             {
                 var div = 10;
-                var fixed = 1000*200;
-                var qtycmp = 1000*200;
+                var fixed = 500*nval;
+                var qtycmp = 500*nval;
             }
 
 
@@ -272,6 +273,8 @@
         <input class = "in" type="number" name = "min" id = "min">
         <label for="max" style="padding-left: 2px;">Max: </label>
         <input class = "in" type="number" name = "max" id = "max">
+        <label for="n" style="padding-left: 2px;">N: </label>
+        <input class = "in" type="number" name = "n" id = "n" style="width: 90px;">
         <button type="button" class="btn btn-success" style="margin-left: 2px; margin-bottom: 0.5%;" onclick="compute()">CALCULATE</button>
         <a href="https://tinyurl.com/adei07" style="margin-left: 5px; margin-bottom: 0.5%;" class="btn btn-info" role="button">LIVE CHART</a>
     </div>
